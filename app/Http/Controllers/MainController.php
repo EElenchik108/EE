@@ -71,6 +71,11 @@ class MainController extends Controller
         return back();
         /*header('Location: ' . $ SERVER)*/        
     }
+
+    function test()
+    {
+        # code...
+    }
     
 }
 
