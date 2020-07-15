@@ -8,6 +8,8 @@ use App\Product;
 use App\Review;
 use App\User;
 
+// Сделала комментарий для проверки записи версии
+
 class MainController extends Controller
 {
     public function index()
