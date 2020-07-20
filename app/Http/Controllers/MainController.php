@@ -56,8 +56,9 @@ class MainController extends Controller
         $product = Product::firstWhere('slug', $slug);
        /* dd($product);*/
         $productName = $product->name;
-        $title = $productName;        
-        return view('shop.product', compact('title', 'product'));  
+        $title = $productName; 
+        $reviewsProduct = Review::orderBy('created_at', 'DESC')->where('product_id', $product->id)->get();       
+        return view('shop.product', compact('title', 'product', 'reviewsProduct'));  
     }
     public function getReview(Request $request)
     {

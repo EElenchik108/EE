@@ -3,6 +3,7 @@
 	<div class="recommended">Recommended</div>
 	@endif
 	<div>Category: {{$product->category->name ?? '-'}}</div>
+	<div>Reviews: {{$product->reviews->count() ?? '-'}}</div>
 	<a href="/product/{{$product->slug}}">
 		<img src="{{$product->img}}"  alt="{{$product->name}}" class="img-fluid">		
 		{{$product->name}}

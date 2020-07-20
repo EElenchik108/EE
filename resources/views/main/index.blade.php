@@ -32,10 +32,10 @@
 		<div class="row">
 			@foreach($reviews as $review)
 				<div class="row justify-content-between font-weight-bold mx-auto shadow p-3 mb-3 bg-white rounded ">
-				<p>{{$review->review}}</p>			
+					<p><b>Product: {{$review->product->name}}</b></p>
+					<p>{{$review->review}}</p>		
 					<p class="col-4 text-center">{{$review->user->name}}</p>
 					<p class="col-4 text-center">{{$review->created_at}}</p>
-							
 				</div>
 		@endforeach
 		</div>

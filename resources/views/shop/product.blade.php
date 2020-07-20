@@ -42,7 +42,7 @@
 		<div class="mt-4">
 			<p><b>Description: </b>{{$product->description}}</p>
 		</div>
-		<div class="mt-4">		
+		{{-- <div class="mt-4">		
 			<b>Reviews: {{$product->reviews->count()>0 ? $product->reviews->count() : 'Not reveiw' }}</b>
 			
 				@if($product->reviews->count()>0) 
@@ -52,7 +52,22 @@
 					</p>					
 				@endforeach
 				@endif			
+		</div> --}}
+
+		<div class="mt-4">		
+			<b>Reviews: {{$reviewsProduct->count() ?? 'Not reveiw' }}</b>
+			
+				@if($reviewsProduct->count()>0) 
+				@foreach($reviewsProduct as $review)
+				<div class="row justify-content-between mx-auto p-3 mb-3 bg-white rounded border-top">	
+					<p>{{$review->review}}</p>
+					<p class="col-4 text-center">{{$review->user->name}}</p>
+					<p class="col-4 text-center">{{$review->created_at}}</p>	
+				</div>								
+				@endforeach
+				@endif			
 		</div>
+
 
 	</div>		
 
