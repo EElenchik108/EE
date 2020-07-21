@@ -26,3 +26,12 @@ Route::post('/product/{slug}', 'MainController@getReview');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group([
+	'prefix' 		=> '/admin',
+	'namespace' 	=> 'Admin',
+	'middleware' 	=> ['auth', 'admin']
+], function(){
+		Route::get('/', 'AdminController@index');
+		Route::resource('/category', 'CategoryController');
+	});

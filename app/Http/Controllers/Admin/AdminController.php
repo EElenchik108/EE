@@ -9,6 +9,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return 'admin panel';
+    	/*dd(\Auth::user()->isAdmin()); - у вошедшего пользователя вызываем метод ->isAdmin(), если админ - true */
+        return view('admin.index');
     }
 }
