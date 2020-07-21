@@ -1,4 +1,5 @@
-@extends('mainlayouts.main')
+{{-- @extends('mainlayouts.main') --}}
+@extends('layouts.app')
 @section('content')
 	<h1 class="text-center text-uppercase">{{$category->name}}</h1>
 	
@@ -14,8 +15,5 @@
 			{{$products->links()}}
 		</div>		
 	</div>
-	
-		
-
 	
 @endsection
