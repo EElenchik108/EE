@@ -8,6 +8,8 @@ use App\Product;
 use App\Review;
 use App\User;
 
+//- проба залить 
+
 class MainController extends Controller
 {
     public function index()
