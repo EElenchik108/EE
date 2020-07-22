@@ -3,10 +3,15 @@
 @section('title', 'Categories')
 
 @section('content_header')
-    <h1>Categories</h1>
+    <h1>Categories 
+    <a href="/admin/category/create" class="btn btn-primary btn-sm">Add category</a>
+	</h1>
 @stop
 
 @section('content')
+
+@include('admin._massages')
+
     <table class="table">
     	<thead>
     		<tr>
