@@ -26,10 +26,10 @@ class StoreProduct extends FormRequest
         return [
             'name' => 'required|unique:products|max:128',
             'slug' => 'required|unique:products|max:128',
-            'price' => 'required|min:1',
+            'price' => 'required|min:1|numeric',
             'description' => 'nullable',
             'recommended' => 'boolean',
-            'category_id' => 'nullable',
+            'category_id' => 'nullable|integer',
             'img' => 'nullable|mimes:jpeg,bmp,gif',
         ];
     }

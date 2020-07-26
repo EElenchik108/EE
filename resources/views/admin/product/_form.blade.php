@@ -17,7 +17,7 @@
 
         <div class="form-group">
             <label for="price">Product Price</label>
-            <input type="number" id="price" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
+            <input type="number" step="0.1" id="price" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
             @error('price')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
