@@ -8,7 +8,7 @@
 
 @section('content')
 
-@include('admin._massages')
+
     <!-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -18,6 +18,8 @@
             </ul>
         </div>
     @endif -->
+
+    @include('admin._massages')
 
     <form action="/admin/category" method="POST" enctype="multipart/form-data">
         <!-- @csrf

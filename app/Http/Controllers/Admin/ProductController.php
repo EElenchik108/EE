@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
+use App\Http\Requests\StoreProduct;
 
 class ProductController extends Controller
 {
@@ -26,7 +28,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        /*dd( $categories );*/
+        return view('admin.product.create', compact('categories'));
     }
 
     /**
@@ -35,9 +39,35 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProduct $request)
     {
-        //
+        /*dd($request->all());*/
+        /*$validatedData = $request->validate([
+            'name' => 'required|unique:categories|max:128',
+            'slug' => 'required|unique:categories|max:128',
+            'price' => 'required|min:1',
+            'description' => 'nullable',
+            'recommended' => 'boolean',
+            'category_id' => 'nullable',
+            'img' => 'nullable|mimes:jpeg,bmp,gif',
+        ]);*/ 
+
+
+        $product = new Product();
+        $product->name = $request->name;
+        $product->slug = $request->slug;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->recommended = $request->recommended;
+        $product->category_id = $request->category;
+        $file = $request->file('img');
+        if($file){
+            $fName = $file->getClientOriginalName();
+            $file->move( public_path('uploads'), $fName );
+            $product->img = '/uploads/' . $fName;
+        }
+        $product->save();
+        return (redirect('/admin/product')->with('success', ' Product ' . $product->name . ' added!'));
     }
 
     /**
@@ -69,9 +99,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProduct $request, $id)
     {
-        //
+        
     }
 
     /**

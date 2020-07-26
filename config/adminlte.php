@@ -252,7 +252,7 @@ return [
             'text'        => 'Products',
             'url'         => 'admin/product',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 100,
+            'label'       => 111,
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],

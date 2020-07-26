@@ -36,7 +36,7 @@
                 <td>{{$item->price}}</td>
                 <td>{{$item->description}}</td>
                 <td>{{$item->recommended}}</td>
-                <td>{{$item->category->name}}</td>
+                <td>{{$item->category ? $item->category->name : 'Not category'}}</td>                
     			<td></td>
     		</tr>
     		@endforeach
