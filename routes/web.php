@@ -23,6 +23,8 @@ Route::get('/category/{slug}', 'MainController@category');
 Route::get('/product/{slug}', 'MainController@product');
 Route::post('/product/{slug}', 'MainController@getReview');
 
+Route::post('/cart/add', 'CartController@add');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

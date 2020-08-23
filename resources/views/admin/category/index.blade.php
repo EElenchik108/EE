@@ -29,7 +29,15 @@
     			<td><img src="{{$item->img}}" alt="{{$item->name}}" style="width: 100px"></td>
     			<td>{{$item->name}}</td>
     			<td>{{$item->slug}}</td>
-    			<td></td>
+    			<td>
+                    <a href="/admin/category/{{$item->id}}/edit" class="btn btn-warning"> <i class="fa fa-edit "></i></a>
+                    <form action="/admin/category/{{$item->id}}" method="POST">
+                        @csrf
+                        {{-- <input type="hidden" name="_method" value="DELETE"> --}}
+                        @method('DELETE')
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    </form>         
+                </td>
     		</tr>
     		@endforeach
     	</tbody>

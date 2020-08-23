@@ -15,10 +15,17 @@
 							<p><b>Price: </b> {{$product->price}}</p>
 							<p><b>Category: </b> {{$product->category ? $product->category->name : 'No category'}}</p>
 							<div class="">
-								<a href=""  class="mr-5 btn btn-secondary">Buy now</a>
-								<a href=""  class="mr-5 btn btn-outline-secondary">Write to seller</a>
+								<!-- <a href=""  class="mr-5 btn btn-secondary">Buy now</a>
+								<a href=""  class="mr-5 btn btn-outline-secondary">Write to seller</a> -->
 								
 							</div>
+							<form action="" class="add-to-cart">
+								@csrf
+								<input type="number" name="qty" value="1">
+								<input type="hidden" name="product_id" value="{{$product->id}}">
+								<button class="btn btn-primary">Add to cart</button>
+								
+							</form>
 					</div>			
 				</div>
 				<div class="container">

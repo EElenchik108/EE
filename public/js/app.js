@@ -37276,6 +37276,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37320,6 +37322,33 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/cart.js":
+/*!******************************!*\
+  !*** ./resources/js/cart.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var formAddToCart = document.querySelector('.add-to-cart');
+
+if (formAddToCart) {
+  formAddToCart.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = new FormData(formAddToCart);
+    /*все данные собранные из формы {{qty: 2, product_id: 14}}*/
+
+    axios.post('/cart/add', data).then(function (response) {
+      changeCart(response.data);
+    });
+  });
+}
+
+function changeCart(data) {
+  document.querySelector('.modal-body').innerHTML = data;
+}
 
 /***/ }),
 

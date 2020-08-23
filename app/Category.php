@@ -10,6 +10,14 @@ class Category extends Model
     {
     	return $this->hasMany('App\Product');
     }
+    public function setSlugAttribute($value)
+    {
+    	$this->attributes['slug'] = empty($value) ? \Str::slug($this->attributes['name'], '-') : \Str::slug($value);
+
+    }
+    public function getImgAttribute($value){
+    	return empty($value) ? '/images/nophoto.jpg' : $value;
+    }
 }
 
 

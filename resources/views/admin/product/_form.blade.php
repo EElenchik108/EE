@@ -9,7 +9,7 @@
         
         <div class="form-group">
             <label for="slug">Product Slug</label>
-            <input type="text" id="slug" name="slug" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') }}">
+            <input type="text" id="slug" name="slug" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug', $category->slug ?? '') }}">
             @error('slug')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror

@@ -50,6 +50,7 @@ class CategoryController extends Controller
         $category = new Category();
         $category->name = $request->name;
         $category->slug = $request->slug;
+
         $file = $request->file('img');
         if($file){
             $fName = $file->getClientOriginalName();
@@ -79,7 +80,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -91,7 +93,18 @@ class CategoryController extends Controller
      */
     public function update(StoreCategory $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+
+        $file = $request->file('img');
+        if($file){
+            $fName = $file->getClientOriginalName();
+            $file->move( public_path('uploads'), $fName );
+            $category->img = '/uploads/' . $fName;
+        }
+        $category->save();
+        return back()->with('success', 'Category' . $category->name . ' edited!');
     }
 
     /**
@@ -102,6 +115,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::findOrFail($id)->delete();
+        return back();
     }
 }
