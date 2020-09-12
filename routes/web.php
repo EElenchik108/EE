@@ -24,6 +24,13 @@ Route::get('/product/{slug}', 'MainController@product');
 Route::post('/product/{slug}', 'MainController@getReview');
 
 Route::post('/cart/add', 'CartController@add');
+Route::post('/cart/remove', 'CartController@remove');
+
+Route::post('/cart/clear', 'CartController@clear');
+
+Route::get('/checkout', 'CartController@checkout');
+
+Route::get('/end-checkout', 'CartController@endCheckout');
 
 Auth::routes();
 

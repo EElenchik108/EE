@@ -33,10 +33,10 @@ class StoreCategory extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Обязательно для заполнения',
-            'name.unique' => 'Категория существует',
-            'name.max' => 'Название допустимо до 64 символов',
-            /*'slug.required' => 'Обязательно для заполнения',*/
-        ];
+            'name.required' => 'Required to fill',
+            'name.unique' => 'Category exists',
+            'name.max' => 'Name is valid up to 64 characters',
+            'slug.unique' => 'This slug already exists',
+            ];
     }
 }

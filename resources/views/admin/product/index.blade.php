@@ -29,6 +29,7 @@
     	<tbody>
     		@foreach($products as $item)
     		<tr>
+                
     			<td>{{$loop->iteration}}</td>
     			<td><img src="{{$item->img}}" alt="{{$item->name}}" style="width: 100px"></td>
     			<td>{{$item->name}}</td>
@@ -37,7 +38,16 @@
                 <td>{{$item->description}}</td>
                 <td>{{$item->recommended}}</td>
                 <td>{{$item->category ? $item->category->name : 'Not category'}}</td>                
-    			<td></td>
+    			<td>
+                    <a href="/admin/product/{{$item->id}}/edit" class="btn btn-warning"> <i class="fa fa-edit "></i></a>
+                    <form action="/admin/product/{{$item->id}}" method="POST">
+                        @csrf
+                        {{-- <input type="hidden" name="_method" value="DELETE"> --}}
+                        @method('DELETE')
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    </form>         
+                </td>
+
     		</tr>
     		@endforeach
     	</tbody>

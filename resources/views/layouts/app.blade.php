@@ -33,6 +33,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <!-- {{ dump (Request::is('checkout') ) }} -->
+                        <ul>
+                            <li class="nav-item">
+                            <a href="/"  class="nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
+                            <li class="nav-item">
+                            <a href="/contacts"  class="nav-link {{ Request::is('/') ? 'active' : '' }}">Contacts</a>
+                        </li>
+                        </ul>
 
                     </ul>
 
@@ -98,7 +106,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <a href="/checkout" class="btn btn-primary">Checkout</a>
+        <button type="button" class="btn btn-danger clear-cart">Clear cart</button>
       </div>
     </div>
   </div>

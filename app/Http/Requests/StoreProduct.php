@@ -24,8 +24,8 @@ class StoreProduct extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:products|max:128',
-            'slug' => 'required|unique:products|max:128',
+            'name' => 'required|unique:products,name,'.$this->product.'|max:128',          
+            'slug' => 'nullable|unique:products,slug,'.$this->product.'|max:128',
             'price' => 'required|min:1|numeric',
             'description' => 'nullable',
             'recommended' => 'boolean',
@@ -33,4 +33,5 @@ class StoreProduct extends FormRequest
             'img' => 'nullable|mimes:jpeg,bmp,gif',
         ];
     }
+    
 }

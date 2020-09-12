@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('admin._massages')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
